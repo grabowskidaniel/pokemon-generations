@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { GenerationCardModule } from './components/generation-card/generation-card.module';
+import { GenerationCardModule } from './generation-card/generation-card.module';
 import { GenerationsRoutingModule } from './generations-routing.module';
 import { GenerationsComponent } from './generations.component';
 
