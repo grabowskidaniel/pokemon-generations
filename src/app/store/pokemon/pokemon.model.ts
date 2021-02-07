@@ -3,6 +3,11 @@ export interface DefaultResult {
   url: string;
 }
 
+export interface BasicGeneration {
+  name: string;
+  url: string;
+}
+
 export interface NameResult {
   name: string;
   language: { name: string; url: string };
@@ -12,6 +17,7 @@ export interface NameResult {
  * Source:
  * https://pokeapi.co/docs/v2#generations
  */
+// TODO: mover
 export interface PokemonGeneration {
   id: number;
   name: string;
@@ -24,13 +30,14 @@ export interface PokemonGeneration {
   version_groups: DefaultResult[];
 }
 
+// TODO: mover
 export interface PokemonGenerationResult {
   count: number;
   next: string;
   previous: string;
-  results: DefaultResult[];
+  results: BasicGeneration[];
 }
 
 export class PokemonStateModel {
-  constructor(public generations: PokemonGenerationResult[]) {}
+  constructor(public basicGenerations: BasicGeneration[], public generationResult: PokemonGenerationResult) {}
 }
