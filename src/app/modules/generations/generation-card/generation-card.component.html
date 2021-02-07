@@ -1,9 +1,9 @@
 <app-card [title]="name | generationName">
   <div class="row">
-    <app-value class="col-sm-3" label="Main Region" [value]="mainRegion | titlecase"></app-value>
-    <app-value class="col-sm-3" label="Moves" [value]="movesQuantity"></app-value>
-    <app-value class="col-sm-3" label="Species" [value]="speciesQuantity"></app-value>
-    <app-value class="col-sm-3" label="Types" [value]="typesQuantity"></app-value>
-    <app-value class="col-sm-3" label="Version Groups" [value]="versionGroupsQuantity"></app-value>
+    <app-label class="col-sm-3" label="Main Region">{{ mainRegion | titlecase }}</app-label>
+    <app-label class="col-sm-3" label="Moves">{{ movesQuantity }}</app-label>
+    <app-label class="col-sm-3" label="Species">{{ speciesQuantity }}</app-label>
+    <app-label class="col-sm-3" label="Types">{{ typesQuantity }}</app-label>
+    <app-label class="col-sm-3" label="Version Groups">{{ versionGroupsQuantity }}</app-label>
   </div>
 </app-card>
