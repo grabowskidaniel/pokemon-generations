@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { GenerationCardModule } from './components/generation-card/generation-card.module';
 import { GenerationsRoutingModule } from './generations-routing.module';
 import { GenerationsComponent } from './generations.component';
 
@@ -7,7 +8,8 @@ import { GenerationsComponent } from './generations.component';
   declarations: [GenerationsComponent],
   imports: [
     CommonModule,
-    GenerationsRoutingModule
+    GenerationsRoutingModule,
+    GenerationCardModule
   ]
 })
 export class GenerationsModule { }

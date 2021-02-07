@@ -1,4 +1,6 @@
-<p>generations works!</p>
-<ul>
-  <li *ngFor="let generation of (basicGenerations$ | async)">Name: {{ generation.name }}</li>
-</ul>
+<div class="container">
+  <app-generation-card
+    *ngFor="let generation of (basicGenerations$ | async)"
+    [title]="generation.name" >
+  </app-generation-card>
+</div>
