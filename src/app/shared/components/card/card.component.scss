@@ -1,4 +1,8 @@
 .card {
   border-radius: unset;
   margin: 10px 0;
+
+  .card-header {
+    font-weight: bold;
+  }
 }
