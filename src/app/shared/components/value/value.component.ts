@@ -7,5 +7,5 @@ import { Component, Input } from '@angular/core';
 })
 export class ValueComponent {
   @Input() label: string;
-  @Input() value: string;
+  @Input() value: string | number;
 }

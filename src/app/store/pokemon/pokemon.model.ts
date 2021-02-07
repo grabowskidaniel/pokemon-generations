@@ -1,4 +1,4 @@
-export interface DefaultResult {
+export interface NamedAPIResource {
   name: string;
   url: string;
 }
@@ -16,13 +16,13 @@ export interface NameResult {
 export interface PokemonGeneration {
   id: number;
   name: string;
-  abilitites: DefaultResult[];
-  main_region: DefaultResult;
-  moves: DefaultResult[];
+  abilitites: NamedAPIResource[];
+  main_region: NamedAPIResource;
+  moves: NamedAPIResource[];
   names: NameResult[];
-  pokemon_species: DefaultResult[];
-  types: DefaultResult[];
-  version_groups: DefaultResult[];
+  pokemon_species: NamedAPIResource[];
+  types: NamedAPIResource[];
+  version_groups: NamedAPIResource[];
 }
 
 // TODO: mover
@@ -30,7 +30,7 @@ export interface PokemonGenerationResult {
   count: number;
   next: string;
   previous: string;
-  results: DefaultResult[];
+  results: NamedAPIResource[];
 }
 
 export class PokemonStateModel {

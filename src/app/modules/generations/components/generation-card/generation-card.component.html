@@ -1,5 +1,9 @@
-<app-card [title]="generation.name | generationName">
+<app-card [title]="name | generationName">
   <div class="row">
-    <app-value class="col-4" [label]="'Main Region'" [value]="'Kanto'"></app-value>
+    <app-value class="col-sm-3" label="Main Region" [value]="mainRegion | titlecase"></app-value>
+    <app-value class="col-sm-3" label="Moves" [value]="movesQuantity"></app-value>
+    <app-value class="col-sm-3" label="Species" [value]="speciesQuantity"></app-value>
+    <app-value class="col-sm-3" label="Types" [value]="typesQuantity"></app-value>
+    <app-value class="col-sm-3" label="Version Groups" [value]="versionGroupsQuantity"></app-value>
   </div>
 </app-card>

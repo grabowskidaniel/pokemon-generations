@@ -1,24 +1,21 @@
+import { TitleCasePipe, UpperCasePipe } from '@angular/common';
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
   name: 'generationName'
 })
 export class GenerationNamePipe implements PipeTransform {
+  constructor(private titleCasePipe: TitleCasePipe, private upperCasePipe: UpperCasePipe) {}
+
   /**
-   * Recebe um nome no formato "generation-i" e retorna "Generation I"
+   * Recebe um nome no formato "generation iv" e retorna "Generation IV"
    */
   transform(value: string): string {
-    const splitted = value.split('-');
+    const splitted = value.split(' ');
     if (splitted.length === 2) {
-      return splitted.map((val, index) => {
-        if (index === 0) {
-          return val.charAt(0).toUpperCase() + val.slice(1);
-        } else {
-          return val.toUpperCase();
-        }
-      }).join(' ');
-    } else {
-      return value;
+      return `${this.titleCasePipe.transform(splitted[0])} ${this.upperCasePipe.transform(splitted[1])}`;
     }
+
+    return value;
   }
 }
