@@ -1,6 +1,9 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { NgxsModule } from '@ngxs/store';
+import { PokemonState } from 'src/app/store/pokemon/pokemon.state';
 import { GenerationsComponent } from './generations.component';
+import { GenerationsModule } from './generations.module';
 
 describe('GenerationsComponent', () => {
   let component: GenerationsComponent;
@@ -8,7 +11,7 @@ describe('GenerationsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ GenerationsComponent ]
+      imports: [GenerationsModule, NgxsModule.forRoot([PokemonState]), HttpClientModule],
     })
     .compileComponents();
   });
