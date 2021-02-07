@@ -1,6 +1,6 @@
 <div class="container">
   <app-generation-card
-    *ngFor="let generation of (basicGenerations$ | async)"
-    [title]="generation.name" >
+    *ngFor="let generation of (generations$ | async)"
+    [generation]="generation">
   </app-generation-card>
 </div>

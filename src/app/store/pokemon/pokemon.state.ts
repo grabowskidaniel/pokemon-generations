@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Action, Selector, State, StateContext, StateToken } from '@ngxs/store';
+import { forkJoin, Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { PokemonService } from 'src/app/services/pokemon.service';
-import { LoadPokemonGenerationsAction } from './pokemon.actions';
-import { BasicGeneration, PokemonGenerationResult, PokemonStateModel } from './pokemon.model';
+import { LoadPokemonGenerationAction, LoadPokemonGenerationsAction } from './pokemon.actions';
+import { PokemonGeneration, PokemonGenerationResult, PokemonStateModel } from './pokemon.model';
 
 const POKEMON_TOKEN: StateToken<PokemonStateModel> = new StateToken('Pokemon');
 
@@ -16,7 +18,7 @@ export const initialGenerationResult: PokemonGenerationResult = {
 @State<PokemonStateModel>({
   name: POKEMON_TOKEN,
   defaults: {
-    basicGenerations: [],
+    generations: [],
     generationResult: initialGenerationResult
   },
 })
@@ -25,22 +27,23 @@ export class PokemonState {
   constructor(private pokemonService: PokemonService) {}
 
   @Selector()
-  public static basicGenerations(state: PokemonStateModel): BasicGeneration[] {
-    return state.basicGenerations;
-  }
-
-  @Selector()
-  public static generationResult(state: PokemonStateModel): PokemonGenerationResult {
-    return state.generationResult;
+  public static generations(state: PokemonStateModel): PokemonGeneration[] {
+    return state.generations;
   }
 
   @Action(LoadPokemonGenerationsAction)
-  public loadPokemonGenerations(context: StateContext<PokemonStateModel>): void {
-    this.pokemonService.generations().subscribe((generationResult: PokemonGenerationResult) => {
-      context.setState({
-        generationResult,
-        basicGenerations: generationResult.results
-      });
-    });
+  public loadPokemonGenerations(context: StateContext<PokemonStateModel>): Observable<Observable<void>> {
+    return this.pokemonService.generations().pipe(map((generationResult: PokemonGenerationResult) => {
+      context.setState({ generationResult, generations: [] });
+      return context.dispatch(new LoadPokemonGenerationAction());
+    }));
+  }
+
+  @Action(LoadPokemonGenerationAction)
+  public loadPokemonGeneration(context: StateContext<PokemonStateModel>): Observable<PokemonStateModel> {
+    const urls = context.getState().generationResult.results.map(result => this.pokemonService.generation(result.url));
+    return forkJoin(urls).pipe(map(generations => {
+      return context.patchState({ generations });
+    }));
   }
 }

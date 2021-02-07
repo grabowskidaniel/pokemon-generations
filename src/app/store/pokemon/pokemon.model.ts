@@ -3,11 +3,6 @@ export interface DefaultResult {
   url: string;
 }
 
-export interface BasicGeneration {
-  name: string;
-  url: string;
-}
-
 export interface NameResult {
   name: string;
   language: { name: string; url: string };
@@ -35,9 +30,12 @@ export interface PokemonGenerationResult {
   count: number;
   next: string;
   previous: string;
-  results: BasicGeneration[];
+  results: DefaultResult[];
 }
 
 export class PokemonStateModel {
-  constructor(public basicGenerations: BasicGeneration[], public generationResult: PokemonGenerationResult) {}
+  constructor(
+    public generationResult: PokemonGenerationResult,
+    public generations: PokemonGeneration[]
+  ) {}
 }

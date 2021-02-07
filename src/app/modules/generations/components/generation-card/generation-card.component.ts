@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { PokemonGeneration } from 'src/app/store/pokemon/pokemon.model';
 
 @Component({
   selector: 'app-generation-card',
@@ -6,5 +7,5 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./generation-card.component.scss']
 })
 export class GenerationCardComponent {
-  @Input() title: string;
+  @Input() generation: PokemonGeneration;
 }

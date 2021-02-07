@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
-import { PokemonGenerationResult } from '../store/pokemon/pokemon.model';
+import { PokemonGeneration, PokemonGenerationResult } from '../store/pokemon/pokemon.model';
 
 @Injectable({providedIn: 'root'})
 export class PokemonService {
@@ -17,10 +17,9 @@ export class PokemonService {
   }
 
   /**
-   * Returns more information about a generation by ID
-   * @param id generation id
+   * Returns more information about a generation by URL
    */
-  generation(id: number): Observable<PokemonGenerationResult> {
-    return this.httpClient.get<PokemonGenerationResult>(`${this.API_URL}/generation/${id}`);
+  generation(url: string): Observable<PokemonGeneration> {
+    return this.httpClient.get<PokemonGeneration>(url);
   }
 }
