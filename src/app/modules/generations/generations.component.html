@@ -1,0 +1,4 @@
+<p>generations works!</p>
+<ul>
+  <li *ngFor="let generation of (basicGenerations$ | async)">Name: {{ generation.name }}</li>
+</ul>
