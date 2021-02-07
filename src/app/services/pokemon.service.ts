@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
-import { PokemonGeneration, PokemonGenerationResult } from '../store/pokemon/pokemon.model';
+import { PokemonGeneration, PokemonGenerationResult } from '../modules/generations/model/pokemon-generation.model';
 
 @Injectable({providedIn: 'root'})
 export class PokemonService {

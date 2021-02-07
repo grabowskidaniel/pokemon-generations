@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Select, Store } from '@ngxs/store';
 import { Observable } from 'rxjs';
+import { PokemonGeneration } from '../modules/generations/model/pokemon-generation.model';
 import { LoadPokemonGenerationsAction } from '../store/pokemon/pokemon.actions';
-import { PokemonGeneration } from '../store/pokemon/pokemon.model';
 import { PokemonState } from '../store/pokemon/pokemon.state';
 
 @Injectable({providedIn: 'root'})

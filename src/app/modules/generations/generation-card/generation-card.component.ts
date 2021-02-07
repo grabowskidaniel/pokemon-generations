@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { PokemonGeneration } from 'src/app/store/pokemon/pokemon.model';
+import { PokemonGeneration } from '../model/pokemon-generation.model';
 
 @Component({
   selector: 'app-generation-card',

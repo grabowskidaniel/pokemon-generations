@@ -2,9 +2,10 @@ import { Injectable } from '@angular/core';
 import { Action, Selector, State, StateContext, StateToken } from '@ngxs/store';
 import { forkJoin, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { PokemonGeneration, PokemonGenerationResult } from 'src/app/modules/generations/model/pokemon-generation.model';
 import { PokemonService } from 'src/app/services/pokemon.service';
 import { LoadPokemonGenerationAction, LoadPokemonGenerationsAction } from './pokemon.actions';
-import { PokemonGeneration, PokemonGenerationResult, PokemonStateModel } from './pokemon.model';
+import { PokemonStateModel } from './pokemon.model';
 
 const POKEMON_TOKEN: StateToken<PokemonStateModel> = new StateToken('Pokemon');
 

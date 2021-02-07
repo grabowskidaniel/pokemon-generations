@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import { PokemonStateFacadeService } from 'src/app/services/pokemon-state-facade.service';
-import { PokemonGeneration } from 'src/app/store/pokemon/pokemon.model';
+import { PokemonGeneration } from './model/pokemon-generation.model';
 
 @Component({
   selector: 'app-generations',
