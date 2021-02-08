@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { CardModule } from 'src/app/shared/components/card/card.module';
-import { LabelModule } from 'src/app/shared/components/label/label.module';
+import { TitleCaseDashedNamePipeModule } from 'src/app/shared/pipes/titlecase-dashed-name/titlecase-dashed-name.pipe.module';
+import { SpeciesCardModule } from './species-card/species-card.module';
 import { SpeciesRoutingModule } from './species-routing.module';
 import { SpeciesComponent } from './species.component';
 
@@ -10,8 +10,8 @@ import { SpeciesComponent } from './species.component';
   imports: [
     CommonModule,
     SpeciesRoutingModule,
-    CardModule,
-    LabelModule
+    SpeciesCardModule,
+    TitleCaseDashedNamePipeModule
   ]
 })
 export class SpeciesModule { }
