@@ -5,6 +5,9 @@ import { PokemonGeneration } from '../modules/generations/model/pokemon-generati
 import { LoadPokemonGenerationsAction } from '../store/pokemon/pokemon.actions';
 import { PokemonState } from '../store/pokemon/pokemon.state';
 
+/**
+ * Facade service used to access the state management Store.
+ */
 @Injectable({providedIn: 'root'})
 export class PokemonStateFacadeService {
   @Select(PokemonState.generations) generations$: Observable<PokemonGeneration[]>;

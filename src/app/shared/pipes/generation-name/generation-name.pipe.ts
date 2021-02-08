@@ -8,7 +8,8 @@ export class GenerationNamePipe implements PipeTransform {
   constructor(private titleCasePipe: TitleCasePipe, private upperCasePipe: UpperCasePipe) {}
 
   /**
-   * Recebe um nome no formato "generation iv" e retorna "Generation IV"
+   * Converts a name with two words: the first word is converted to TitleCase, the second to UPPERCASE.
+   * Example: "generation iv" to "Generation IV"
    */
   transform(value: string, separator = ' '): string {
     const splitted = value.split(separator);

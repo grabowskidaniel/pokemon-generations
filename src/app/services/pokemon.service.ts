@@ -18,7 +18,7 @@ export class PokemonService {
   }
 
   /**
-   * Returns more information about a generation by URL
+   * Returns the details of a generation by URL
    */
   generation(url: string): Observable<PokemonGeneration> {
     return this.httpClient.get<PokemonGeneration>(url);

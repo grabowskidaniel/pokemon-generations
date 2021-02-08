@@ -18,6 +18,10 @@ export class GenerationsComponent implements OnInit {
     this.pokemonStateFacadeService.loadPokemonGenerations();
   }
 
+  /**
+   * Redirects to another page with more information about the region
+   * @param name name of the region used as ID
+   */
   openRegion(name: string): void {
     this.router.navigate(['region', name]);
   }

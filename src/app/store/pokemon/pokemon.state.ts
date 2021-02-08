@@ -32,24 +32,32 @@ export class PokemonState {
     return state.generations;
   }
 
+  /**
+   * Retrieves the pokemon generations from the API into the state, if the information isn't already loaded.
+   * Dispatch the LoadPokemonGenerationAction to load more information about the generation
+   */
   @Action(LoadPokemonGenerationsAction)
   public loadPokemonGenerations(context: StateContext<PokemonStateModel>): Observable<Observable<void>> {
     const alreadyLoaded: boolean = context.getState().generations.length > 0;
+    // if already loaded: do nothing
     if (alreadyLoaded) {
       return EMPTY;
     } else {
+      // load generations
       return this.pokemonService.generations().pipe(map((generationResult: PokemonGenerationResult) => {
+        // update the state
         context.setState({ generationResult, generations: [] });
         return context.dispatch(new LoadPokemonGenerationAction());
       }));
     }
   }
 
+  /**
+   * Retrieve more information about the generation by doing one request for each generation URL
+   */
   @Action(LoadPokemonGenerationAction)
   public loadPokemonGeneration(context: StateContext<PokemonStateModel>): Observable<PokemonStateModel> {
     const urls = context.getState().generationResult.results.map(result => this.pokemonService.generation(result.url));
-    return forkJoin(urls).pipe(map(generations => {
-      return context.patchState({ generations });
-    }));
+    return forkJoin(urls).pipe(map(generations => context.patchState({ generations })));
   }
 }

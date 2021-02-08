@@ -18,6 +18,7 @@ export class GenerationCardComponent implements OnInit {
   public versionGroupsQuantity: string;
 
   ngOnInit(): void {
+    // Initialize the information about a pokemon generation
     this.mainRegion = this.generation.main_region.name;
     this.movesQuantity = this.quantityFormater(this.generation.moves.length);
     this.speciesQuantity = this.quantityFormater(this.generation.pokemon_species.length);
@@ -28,6 +29,11 @@ export class GenerationCardComponent implements OnInit {
     this.name = generationName ? generationName.name : 'Unknown Generation';
   }
 
+  /**
+   * Converts a quantity to string.
+   * Also returns the string 'None' when quantity = 0.
+   * @param quantity type number
+   */
   private quantityFormater(quantity: number): string {
     return quantity !== 0 ? `${quantity}` : 'None';
   }
