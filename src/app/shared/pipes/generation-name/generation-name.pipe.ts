@@ -10,8 +10,8 @@ export class GenerationNamePipe implements PipeTransform {
   /**
    * Recebe um nome no formato "generation iv" e retorna "Generation IV"
    */
-  transform(value: string): string {
-    const splitted = value.split(' ');
+  transform(value: string, separator = ' '): string {
+    const splitted = value.split(separator);
     if (splitted.length === 2) {
       return `${this.titleCasePipe.transform(splitted[0])} ${this.upperCasePipe.transform(splitted[1])}`;
     }

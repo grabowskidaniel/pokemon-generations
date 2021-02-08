@@ -1,5 +1,5 @@
-<div class="container">
-  <h2>
+<div class="container" *ngIf="loaded">
+  <h2 >
     <a [routerLink]="['/']" routerLinkActive="router-link-active" >
       <i class="fas fa-arrow-left"></i>
     </a>
@@ -7,7 +7,19 @@
   </h2>
   <div class="row">
     <app-label class="col-sm-12" label="Locations">
-      {{ 'a' }}
+      {{ locationNames }}
+    </app-label>
+
+    <app-label class="col-sm-12" label="Main Generation">
+      {{ mainGeneration }}
+    </app-label>
+
+    <app-label class="col-sm-12" label="Pokedexes">
+      {{ pokedexes }}
+    </app-label>
+
+    <app-label class="col-sm-12" label="Version Groups">
+      {{ versionGroups }}
     </app-label>
   </div>
 </div>
