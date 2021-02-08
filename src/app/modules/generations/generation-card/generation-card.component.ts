@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { PokemonGeneration } from '../model/pokemon-generation.model';
 
 @Component({
@@ -8,6 +8,7 @@ import { PokemonGeneration } from '../model/pokemon-generation.model';
 })
 export class GenerationCardComponent implements OnInit {
   @Input() generation: PokemonGeneration;
+  @Output() openRegion: EventEmitter<string> = new EventEmitter();
 
   public mainRegion: string;
   public movesQuantity: string;
@@ -29,5 +30,9 @@ export class GenerationCardComponent implements OnInit {
 
   private quantityFormater(quantity: number): string {
     return quantity !== 0 ? `${quantity}` : 'None';
+  }
+
+  public onClickRegion(event: MouseEvent): void {
+    this.openRegion.emit(this.generation.main_region.name);
   }
 }

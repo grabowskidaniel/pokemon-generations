@@ -1,6 +1,7 @@
 <div class="container">
   <app-generation-card
     *ngFor="let generation of (generations$ | async)"
-    [generation]="generation">
+    [generation]="generation"
+    (openRegion)="openRegion($event)">
   </app-generation-card>
 </div>

@@ -1,9 +1,23 @@
 <app-card [title]="name | generationName">
   <div class="row">
-    <app-label class="col-sm-3" label="Main Region">{{ mainRegion | titlecase }}</app-label>
-    <app-label class="col-sm-3" label="Moves">{{ movesQuantity }}</app-label>
-    <app-label class="col-sm-3" label="Species">{{ speciesQuantity }}</app-label>
-    <app-label class="col-sm-3" label="Types">{{ typesQuantity }}</app-label>
-    <app-label class="col-sm-3" label="Version Groups">{{ versionGroupsQuantity }}</app-label>
+    <app-label class="col-sm-3" label="Main Region">
+      <a [routerLink]="[]" (click)="onClickRegion($event)">{{ mainRegion | titlecase }}</a>
+    </app-label>
+
+    <app-label class="col-sm-3" label="Moves">
+      {{ movesQuantity }}
+    </app-label>
+
+    <app-label class="col-sm-3" label="Species">
+      {{ speciesQuantity }}
+    </app-label>
+
+    <app-label class="col-sm-3" label="Types">
+      {{ typesQuantity }}
+    </app-label>
+
+    <app-label class="col-sm-3" label="Version Groups">
+      {{ versionGroupsQuantity }}
+    </app-label>
   </div>
 </app-card>
