@@ -1,5 +1,10 @@
 <div class="container">
-  <h2>{{ regionName | titlecase}} Region</h2>
+  <h2>
+    <a [routerLink]="['/']" routerLinkActive="router-link-active" >
+      <i class="fas fa-arrow-left"></i>
+    </a>
+    {{ regionName | titlecase}} Region
+  </h2>
   <div class="row">
     <app-label class="col-sm-12" label="Locations">
       {{ 'a' }}
