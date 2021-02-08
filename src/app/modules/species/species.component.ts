@@ -11,7 +11,8 @@ import { PokemonSpecies } from './model/pokemon-species.model';
   styleUrls: ['./species.component.scss']
 })
 export class SpeciesComponent implements OnInit, OnDestroy {
-  species$: Observable<PokemonSpecies[]>;
+  public species$: Observable<PokemonSpecies[]>;
+  public generationName: string;
 
   private unsub$: Subject<void> = new Subject();
 
@@ -30,13 +31,13 @@ export class SpeciesComponent implements OnInit, OnDestroy {
   private loadSpeciesDetails(): void {
     this.activatedRoute.params.pipe(takeUntil(this.unsub$)).subscribe(params => {
       if (params?.name) {
-        const generationName = params.name;
+        this.generationName = params.name;
 
-        this.species$ = this.pokemonStateFacadeService.generationSpecies$(generationName);
+        this.species$ = this.pokemonStateFacadeService.generationSpecies$(this.generationName);
 
         this.pokemonStateFacadeService.generations$.pipe(takeUntil(this.unsub$)).subscribe(species => {
           if (species?.length) {
-            this.pokemonStateFacadeService.loadSpeciesDetails(generationName);
+            this.pokemonStateFacadeService.loadSpeciesDetails(this.generationName);
           }
         });
       }

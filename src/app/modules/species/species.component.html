@@ -1,9 +1,9 @@
 <div class="container">
-  <h2 >
+  <h2>
     <a [routerLink]="['/']" routerLinkActive="router-link-active" >
       <i class="fas fa-arrow-left"></i>
     </a>
-    Species
+    {{ generationName | titleCaseDashedName }} Species
   </h2>
   <app-species-card *ngFor="let species of (species$ | async)" [species]="species" ></app-species-card>
 </div>
