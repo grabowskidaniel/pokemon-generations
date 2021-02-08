@@ -13,6 +13,11 @@ const routes: Routes = [
         path: 'region/:name',
         pathMatch: 'full',
         loadChildren: () => import('./modules/regions/regions.module').then(m => m.RegionsModule)
+      },
+      {
+        path: 'species/:name',
+        pathMatch: 'full',
+        loadChildren: () => import('./modules/species/species.module').then(m => m.SpeciesModule)
       }
     ]
   }

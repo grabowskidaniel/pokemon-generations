@@ -25,4 +25,11 @@ export class GenerationsComponent implements OnInit {
   openRegion(name: string): void {
     this.router.navigate(['region', name]);
   }
+
+  /**
+   * Redirects to another page to show the list of species
+   */
+  openSpecies(generation: PokemonGeneration): void {
+    this.router.navigate(['species', generation.name]);
+  }
 }

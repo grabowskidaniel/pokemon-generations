@@ -9,7 +9,7 @@
     </app-label>
 
     <app-label class="col-sm-3" label="Species">
-      {{ speciesQuantity }}
+      <a [routerLink]="[]" (click)="onClickSpecies($event)">{{ speciesQuantity }}</a>
     </app-label>
 
     <app-label class="col-sm-3" label="Types">

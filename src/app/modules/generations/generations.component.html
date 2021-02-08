@@ -3,6 +3,7 @@
   <app-generation-card
     *ngFor="let generation of (generations$ | async)"
     [generation]="generation"
-    (openRegion)="openRegion($event)">
+    (openRegion)="openRegion($event)"
+    (openSpecies)="openSpecies($event)">
   </app-generation-card>
 </div>

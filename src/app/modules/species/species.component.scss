@@ -1,0 +1,19 @@
+.container {
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+  h2 {
+    padding: 10px 0;
+
+    a {
+      padding-right: 10px;
+
+      i {
+        padding-right: 10px;
+        font-size: x-large;
+        border-right-color: black;
+        border-right-style: solid;
+      }
+    }
+  }
+}

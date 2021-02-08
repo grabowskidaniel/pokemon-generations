@@ -9,6 +9,7 @@ import { PokemonGeneration } from '../model/pokemon-generation.model';
 export class GenerationCardComponent implements OnInit {
   @Input() generation: PokemonGeneration;
   @Output() openRegion: EventEmitter<string> = new EventEmitter();
+  @Output() openSpecies: EventEmitter<PokemonGeneration> = new EventEmitter();
 
   public mainRegion: string;
   public movesQuantity: string;
@@ -40,5 +41,9 @@ export class GenerationCardComponent implements OnInit {
 
   public onClickRegion(event: MouseEvent): void {
     this.openRegion.emit(this.generation.main_region.name);
+  }
+
+  public onClickSpecies(event: MouseEvent): void {
+    this.openSpecies.emit(this.generation);
   }
 }

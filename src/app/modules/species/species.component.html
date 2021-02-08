@@ -1,0 +1,16 @@
+<div class="container">
+  <h2 >
+    <a [routerLink]="['/']" routerLinkActive="router-link-active" >
+      <i class="fas fa-arrow-left"></i>
+    </a>
+    Species
+  </h2>
+  <app-card [title]="'name'">
+    <div class="row">
+      <app-label class="col-sm-3" label="Species">
+        <span>species name</span>
+        <!-- <a [routerLink]="[]" (click)="onClickRegion($event)">{{ '' }}</a> -->
+      </app-label>
+    </div>
+  </app-card>
+</div>
