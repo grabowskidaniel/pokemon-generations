@@ -1,31 +1,19 @@
-<app-card [title]="species.name | titleCaseDashedName">
+<app-card [title]="cardTitle">
   <div class="row">
-    <span>image</span>
-    <app-label class="col-sm-3" label="capture rate">
-      <span></span>
+    <app-label class="col-sm-3" label="Capture rate">
+      <span>{{ species.capture_rate }}</span>
     </app-label>
-    <app-label class="col-sm-3" label="is legendary">
-      <span></span>
+    <app-label class="col-sm-3" label="Is Legendary">
+      <span>{{ species.is_legendary | boolean }}</span>
     </app-label>
-    <app-label class="col-sm-3" label="is mythical">
-      <span></span>
+    <app-label class="col-sm-3" label="Is Mythical">
+      <span>{{ species.is_mythical | boolean }}</span>
     </app-label>
-    <app-label class="col-sm-3" label="evolves from species">
-      <span></span>
+    <app-label class="col-sm-3" label="Evolves from species">
+      <span>{{ !!species.evolves_from_species ? (species.evolves_from_species.name | titleCaseDashedName) : 'None' }}</span>
     </app-label>
-    <app-label class="col-sm-3" label="form descriptions">
-      <span></span>
+    <app-label class="col-sm-3" label="Form descriptions">
+      <span>{{ !!species.form_descriptions.length ? species.form_descriptions : 'None'  }}</span>
     </app-label>
-    <!-- colocar #número junto com o título no card -->
-    <!-- image -->
-    <!-- capture rate -->
-    <!-- is legendary -->
-    <!-- is mythical -->
-    <!-- evolves from species -->
-    <!-- form descriptions -->
-    <!-- <app-label class="col-sm-3" label="name">
-      <span></span>
-      <a [routerLink]="[]" (click)="onClickRegion($event)">{{ '' }}</a>
-    </app-label> -->
   </div>
 </app-card>
