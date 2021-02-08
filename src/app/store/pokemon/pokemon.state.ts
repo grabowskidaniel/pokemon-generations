@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Action, Selector, State, StateContext, StateToken } from '@ngxs/store';
-import { forkJoin, Observable } from 'rxjs';
+import { EMPTY, forkJoin, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { PokemonGeneration, PokemonGenerationResult } from 'src/app/modules/generations/model/pokemon-generation.model';
 import { PokemonService } from 'src/app/services/pokemon.service';
@@ -34,10 +34,15 @@ export class PokemonState {
 
   @Action(LoadPokemonGenerationsAction)
   public loadPokemonGenerations(context: StateContext<PokemonStateModel>): Observable<Observable<void>> {
-    return this.pokemonService.generations().pipe(map((generationResult: PokemonGenerationResult) => {
-      context.setState({ generationResult, generations: [] });
-      return context.dispatch(new LoadPokemonGenerationAction());
-    }));
+    const alreadyLoaded: boolean = context.getState().generations.length > 0;
+    if (alreadyLoaded) {
+      return EMPTY;
+    } else {
+      return this.pokemonService.generations().pipe(map((generationResult: PokemonGenerationResult) => {
+        context.setState({ generationResult, generations: [] });
+        return context.dispatch(new LoadPokemonGenerationAction());
+      }));
+    }
   }
 
   @Action(LoadPokemonGenerationAction)
