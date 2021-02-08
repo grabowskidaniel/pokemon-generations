@@ -86,7 +86,9 @@ export class PokemonState {
       const generationpecies = context.getState().generations.find(gen => gen.name === generationName)?.pokemon_species;
       const speciesRequestList = generationpecies ? generationpecies.map(species => this.pokemonService.species(species.name)) : [];
       return forkJoin(speciesRequestList).pipe(map(species => {
-        stateSpecies[generationName] = species;
+        stateSpecies[generationName] = species.sort((a, b) => {
+          return a.id - b.id;
+        });
         return context.patchState({ species: stateSpecies });
       }));
     }
