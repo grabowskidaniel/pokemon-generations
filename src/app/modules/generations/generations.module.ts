@@ -9,8 +9,7 @@ import { GenerationsComponent } from './generations.component';
   imports: [
     CommonModule,
     GenerationsRoutingModule,
-    GenerationCardModule,
-    GenerationsRoutingModule
+    GenerationCardModule
   ]
 })
 export class GenerationsModule { }

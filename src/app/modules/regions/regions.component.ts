@@ -33,19 +33,21 @@ export class RegionsComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.activatedRoute.params.pipe(takeUntil(this.unsub$)).subscribe(param => {
-      this.pokemonService.region(param.name).pipe(takeUntil(this.unsub$)).subscribe(region => {
-        const regionName = region.names.find(name => name.language.name.toLowerCase() === 'en');
-        this.regionName = regionName ? regionName.name : 'Unknown Region';
+      if (param?.name) {
+        this.pokemonService.region(param.name).pipe(takeUntil(this.unsub$)).subscribe(region => {
+          const regionName = region.names.find(name => name.language.name.toLowerCase() === 'en');
+          this.regionName = regionName ? regionName.name : 'Unknown Region';
 
-        this.region = region;
+          this.region = region;
 
-        this.locationNames = this.convertListToString(region.locations);
-        this.mainGeneration = this.generationNamePipe.transform(region.main_generation.name, '-');
-        this.pokedexes = this.convertListToString(region.pokedexes);
-        this.versionGroups = this.convertListToString(region.version_groups);
+          this.locationNames = this.convertListToString(region.locations);
+          this.mainGeneration = this.generationNamePipe.transform(region.main_generation.name, '-');
+          this.pokedexes = this.convertListToString(region.pokedexes);
+          this.versionGroups = this.convertListToString(region.version_groups);
 
-        this.loaded = true;
-      });
+          this.loaded = true;
+        });
+      }
     });
   }
 

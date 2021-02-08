@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterModule } from '@angular/router';
 import { NamedAPIResource, PokemonGeneration } from '../model/pokemon-generation.model';
 import { GenerationCardComponent } from './generation-card.component';
 import { GenerationCardModule } from './generation-card.module';
@@ -22,7 +23,7 @@ describe('GenerationCardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [GenerationCardModule]
+      imports: [GenerationCardModule, RouterModule.forRoot([])]
     })
     .compileComponents();
   });

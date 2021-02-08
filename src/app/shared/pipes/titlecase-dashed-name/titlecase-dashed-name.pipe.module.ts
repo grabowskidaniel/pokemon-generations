@@ -10,4 +10,4 @@ import { TitleCaseDashedNamePipe } from './titlecase-dashed-name.pipe';
   exports: [TitleCaseDashedNamePipe],
   providers: [TitleCasePipe]
 })
-export class TitleCaseDashedNameModule { }
+export class TitleCaseDashedNamePipeModule { }

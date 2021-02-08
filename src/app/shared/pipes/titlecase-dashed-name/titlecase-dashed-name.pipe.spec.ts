@@ -1,12 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 import { TitleCaseDashedNamePipe } from './titlecase-dashed-name.pipe';
+import { TitleCaseDashedNamePipeModule } from './titlecase-dashed-name.pipe.module';
 
 describe('TitleCaseDashedNamePipe', () => {
   let titleCaseDashedNamePipe: TitleCaseDashedNamePipe;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [TitleCaseDashedNamePipe],
+      imports: [TitleCaseDashedNamePipeModule],
       providers: [TitleCaseDashedNamePipe]
     })
     .compileComponents();

@@ -1,5 +1,6 @@
 import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterModule } from '@angular/router';
 import { NgxsModule } from '@ngxs/store';
 import { PokemonState } from 'src/app/store/pokemon/pokemon.state';
 import { GenerationsComponent } from './generations.component';
@@ -11,7 +12,7 @@ describe('GenerationsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [GenerationsModule, NgxsModule.forRoot([PokemonState]), HttpClientModule],
+      imports: [GenerationsModule, RouterModule.forRoot([]), NgxsModule.forRoot([PokemonState]), HttpClientModule],
     })
     .compileComponents();
   });
