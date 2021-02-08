@@ -1,27 +1,70 @@
 # PokemonGenerations
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.1.4.
+Este site apresenta as gerações dos Pokemons usando a API https://pokeapi.co/docs/v2.
 
-## Development server
+Para cada geração é exibido a região principal e a quantidade de movimentos, espécies, tipos e grupos de versão.
+Além disso é possível visualizar os detalhes de uma região clicando em seu nome.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Pré requisitos
 
-## Code scaffolding
+Seguir o guia de setup local do Angular e instalar o Git, NodeJS, NPM e Angular CLI:
+https://angular.io/guide/setup-local
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Yarn:
+https://classic.yarnpkg.com/en/docs/install/#windows-stable
 
-## Build
+## Clonar repositório
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Fazer um clone do repositório do Github para uma pasta local usando o comando:
 
-## Running unit tests
+```
+git clone https://github.com/grabowskidaniel/pokemon-generations.git
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Para mais informações acesse https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository
 
-## Running end-to-end tests
+## Instalar dependências
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Para instalar as dependencias, abra um prompt de comando, navegue para a pasta onde o projeto foi clonado, na pasta onde está o arquivo package.json e digite o comando:
 
-## Further help
+```
+$ yarn install
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+ou
+
+```
+$ npm install
+```
+
+## Iniciar servidor local
+
+Após a instalação das dependências, em um prompt de comando, digite:
+
+```
+$ yarn start
+```
+
+ou
+
+```
+$ npm start
+```
+
+O projeto irá compilar e pode ser acessado no endereço: `http://localhost:4200`
+
+## Testes unitários
+
+Para executar os testes unitários digite:
+
+```
+$ yarn test
+```
+
+ou
+
+```
+$ npm test
+```
+
+O resultado dos testes aparecerá no console e também em uma nova janela no navegador.
