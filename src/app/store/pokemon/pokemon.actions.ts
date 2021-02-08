@@ -5,3 +5,8 @@ export class LoadPokemonGenerationsAction {
 export class LoadPokemonGenerationAction {
   public static type = 'LoadPokemonGenerationAction';
 }
+
+export class LoadPokemonSpeciesDetailsAction {
+  public static type = 'LoadPokemonSpeciesDetailsAction';
+  constructor(public generationName: string) {}
+}

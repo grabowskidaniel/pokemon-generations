@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import { PokemonGeneration, PokemonGenerationResult } from '../modules/generations/model/pokemon-generation.model';
 import { PokemonRegion } from '../modules/regions/model/pokemon-region.model';
+import { PokemonSpecies } from '../modules/species/model/pokemon-species.model';
 
 @Injectable({providedIn: 'root'})
 export class PokemonService {
@@ -30,5 +31,13 @@ export class PokemonService {
    */
   region(name: string): Observable<PokemonRegion> {
     return this.httpClient.get<PokemonRegion>(`${this.API_URL}/region/${name}`);
+  }
+
+  /**
+   * Returns the details of a pokemon species by name
+   * @param name name of the species used as id
+   */
+  species(name: string): Observable<PokemonSpecies> {
+    return this.httpClient.get<PokemonSpecies>(`${this.API_URL}/pokemon-species/${name}`);
   }
 }
