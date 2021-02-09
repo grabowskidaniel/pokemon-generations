@@ -3,7 +3,7 @@
 Este site apresenta as gerações dos Pokemons usando a API https://pokeapi.co/docs/v2.
 
 Para cada geração é exibido a região principal e a quantidade de movimentos, espécies, tipos e grupos de versão.
-Além disso é possível visualizar os detalhes de uma região clicando em seu nome.
+Além disso é possível ver a lista de pokemons por geração, clicando no total de espécies e também visualizar os detalhes de uma região clicando em seu nome.
 
 ## Pré requisitos
 
