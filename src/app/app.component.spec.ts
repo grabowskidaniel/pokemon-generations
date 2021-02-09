@@ -23,6 +23,6 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('nav a').textContent).toBe('Pokemon');
+    expect(compiled.querySelector('.navbar-text').textContent).toBe('Pokemon');
   });
 });
