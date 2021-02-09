@@ -11,10 +11,12 @@ export class SpeciesCardComponent implements OnInit {
   @Input() species: PokemonSpecies;
 
   public cardTitle: string;
+  public imageUrl: string;
 
   constructor(private titleCaseDashedNamePipe: TitleCaseDashedNamePipe) {}
 
   ngOnInit(): void {
     this.cardTitle = `#${this.species.id} ${this.titleCaseDashedNamePipe.transform(this.species.name)}`;
+    this.imageUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${this.species.id}.png`;
   }
 }
