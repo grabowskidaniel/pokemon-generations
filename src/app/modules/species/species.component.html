@@ -3,7 +3,7 @@
     <a [routerLink]="['/']" routerLinkActive="router-link-active" >
       <i class="fas fa-arrow-left"></i>
     </a>
-    {{ generationName | titleCaseDashedName }} Species
+    {{ generationName | generationName: '-' }} Species
   </h2>
   <app-species-card *ngFor="let species of (species$ | async)" [species]="species" ></app-species-card>
 </div>
