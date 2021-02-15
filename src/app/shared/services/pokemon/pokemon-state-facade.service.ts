@@ -2,10 +2,10 @@ import { Injectable } from '@angular/core';
 import { Select, Store } from '@ngxs/store';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { PokemonGeneration } from '../modules/generations/model/pokemon-generation.model';
-import { PokemonSpecies } from '../modules/species/model/pokemon-species.model';
-import { LoadPokemonGenerationsAction, LoadPokemonSpeciesDetailsAction } from '../store/pokemon/pokemon.actions';
-import { PokemonState } from '../store/pokemon/pokemon.state';
+import { PokemonGeneration } from '../../../modules/generations/model/pokemon-generation.model';
+import { PokemonSpecies } from '../../../modules/species/model/pokemon-species.model';
+import { LoadPokemonGenerationsAction, LoadPokemonSpeciesDetailsAction } from '../../../store/pokemon/pokemon.actions';
+import { PokemonState } from '../../../store/pokemon/pokemon.state';
 
 /**
  * Facade service used to access the state management Store.

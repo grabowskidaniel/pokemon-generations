@@ -2,9 +2,9 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { PokemonService } from 'src/app/services/pokemon.service';
 import { GenerationNamePipe } from 'src/app/shared/pipes/generation-name/generation-name.pipe';
 import { TitleCaseDashedNamePipe } from 'src/app/shared/pipes/titlecase-dashed-name/titlecase-dashed-name.pipe';
+import { PokemonService } from 'src/app/shared/services/pokemon/pokemon.service';
 import { NamedAPIResource } from '../generations/model/pokemon-generation.model';
 
 @Component({

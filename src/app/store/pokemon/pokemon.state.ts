@@ -4,7 +4,7 @@ import { EMPTY, forkJoin, Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { PokemonGeneration, PokemonGenerationResult } from 'src/app/modules/generations/model/pokemon-generation.model';
 import { PokemonSpecies } from 'src/app/modules/species/model/pokemon-species.model';
-import { PokemonService } from 'src/app/services/pokemon.service';
+import { PokemonService } from 'src/app/shared/services/pokemon/pokemon.service';
 import { LoadPokemonGenerationAction, LoadPokemonGenerationsAction, LoadPokemonSpeciesDetailsAction } from './pokemon.actions';
 import { PokemonStateModel } from './pokemon.model';
 

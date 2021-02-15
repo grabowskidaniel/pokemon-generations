@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
-import { PokemonGeneration, PokemonGenerationResult } from '../modules/generations/model/pokemon-generation.model';
-import { PokemonRegion } from '../modules/regions/model/pokemon-region.model';
-import { PokemonSpecies } from '../modules/species/model/pokemon-species.model';
+import { PokemonGeneration, PokemonGenerationResult } from 'src/app/modules/generations/model/pokemon-generation.model';
+import { PokemonRegion } from 'src/app/modules/regions/model/pokemon-region.model';
+import { PokemonSpecies } from 'src/app/modules/species/model/pokemon-species.model';
 
 @Injectable({providedIn: 'root'})
 export class PokemonService {

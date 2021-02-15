@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { PokemonStateFacadeService } from 'src/app/services/pokemon-state-facade.service';
+import { PokemonStateFacadeService } from 'src/app/shared/services/pokemon/pokemon-state-facade.service';
 import { PokemonSpecies } from './model/pokemon-species.model';
 
 @Component({
