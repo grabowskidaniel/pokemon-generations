@@ -1,6 +1,7 @@
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { ToastrModule } from 'ngx-toastr';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoaderModule } from './shared/components/loader/loader.module';
@@ -17,7 +18,11 @@ import { NgxsStoreModule } from './store/ngxs-store.module';
     AppRoutingModule,
     NgxsStoreModule,
     HttpClientModule,
-    LoaderModule
+    LoaderModule,
+    ToastrModule.forRoot({
+      maxOpened: 1,
+      preventDuplicates: true
+    })
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

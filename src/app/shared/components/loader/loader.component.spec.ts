@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { LoaderService } from '../../services/loader.service';
+import { LoaderService } from '../../services/loader/loader.service';
 import { LoaderComponent } from './loader.component';
 
 
