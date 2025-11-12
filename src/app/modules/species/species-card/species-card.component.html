@@ -1,7 +1,7 @@
 <app-card [title]="cardTitle">
   <div class="row">
     <div class="col-sm-2 align-center">
-      <img [src]="imageUrl" [alt]="species?.name">
+      <img [src]="imageUrl" [alt]="species.name">
     </div>
     <div class="col-sm-10">
       <div class="row">
@@ -18,7 +18,7 @@
           <span>{{ !!species.evolves_from_species ? (species.evolves_from_species.name | titleCaseDashedName) : 'None' }}</span>
         </app-label>
         <app-label class="col-sm-8" label="Form descriptions">
-          <span>{{ !!species?.form_descriptions?.length ? species?.form_descriptions : 'None'  }}</span>
+          <span>{{ !!species.form_descriptions.length ? species.form_descriptions : 'None'  }}</span>
         </app-label>
       </div>
     </div>

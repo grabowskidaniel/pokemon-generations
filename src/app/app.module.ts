@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { LoaderModule } from './shared/components/loader/loader.module';
 import { LoaderInterceptor } from './shared/interceptors/loader.interceptor';
 import { NgxsStoreModule } from './store/ngxs-store.module';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { NgxsStoreModule } from './store/ngxs-store.module';
     ToastrModule.forRoot({
       maxOpened: 1,
       preventDuplicates: true
-    })
+    }),
+    FontAwesomeModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

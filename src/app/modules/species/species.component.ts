@@ -36,7 +36,7 @@ export class SpeciesComponent implements OnInit, OnDestroy {
         this.species$ = this.pokemonStateFacadeService.generationSpecies$(this.generationName);
 
         this.pokemonStateFacadeService.generations$.pipe(takeUntil(this.unsub$)).subscribe(species => {
-          if (species?.length) {
+          if (species.length) {
             this.pokemonStateFacadeService.loadSpeciesDetails(this.generationName);
           }
         });
