@@ -65,7 +65,7 @@ export class PokemonState {
    * Retrieve more information about the generation by doing one request for each generation URL
    */
   @Action(LoadPokemonGenerationAction)
-  public loadPokemonGeneration(context: StateContext<PokemonStateModel>): Observable<PokemonStateModel> {
+  public loadPokemonGeneration(context: StateContext<PokemonStateModel>): Observable<PokemonStateModel | void> {
     const urls = context.getState().generationResult.results.map(result => this.pokemonService.generation(result.url));
     return forkJoin(urls).pipe(map(generations => context.patchState({ generations })));
   }
@@ -75,7 +75,7 @@ export class PokemonState {
    */
   @Action(LoadPokemonSpeciesDetailsAction)
   public loadPokemonSpeciesDetailsAction(context: StateContext<PokemonStateModel>, action: LoadPokemonSpeciesDetailsAction)
-    : Observable<PokemonStateModel> {
+    : Observable<PokemonStateModel | void> {
     const generationName = action.generationName;
     const stateSpecies = { ...context.getState().species };
 

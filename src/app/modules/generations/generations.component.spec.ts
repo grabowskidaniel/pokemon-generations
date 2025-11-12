@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterModule } from '@angular/router';
 import { NgxsModule } from '@ngxs/store';
@@ -13,17 +13,15 @@ describe('GenerationsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [
-        GenerationsModule,
+    imports: [GenerationsModule,
         RouterModule.forRoot([]),
         NgxsModule.forRoot([PokemonState]),
-        HttpClientModule,
         ToastrModule.forRoot({
-          maxOpened: 1,
-          preventDuplicates: true
-        })
-      ],
-    })
+            maxOpened: 1,
+            preventDuplicates: true
+        })],
+    providers: [provideHttpClient(withInterceptorsFromDi())]
+})
     .compileComponents();
   });
 

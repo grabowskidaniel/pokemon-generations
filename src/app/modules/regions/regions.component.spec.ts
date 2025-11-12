@@ -1,5 +1,5 @@
 import { TitleCasePipe, UpperCasePipe } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterModule } from '@angular/router';
 import { ToastrModule } from 'ngx-toastr';
@@ -13,17 +13,14 @@ describe('RegionsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [
-        RouterModule.forRoot([]),
-        HttpClientModule,
+    declarations: [RegionsComponent],
+    imports: [RouterModule.forRoot([]),
         ToastrModule.forRoot({
-          maxOpened: 1,
-          preventDuplicates: true
-        })
-      ],
-      declarations: [ RegionsComponent],
-      providers: [TitleCasePipe, UpperCasePipe, TitleCaseDashedNamePipe, GenerationNamePipe]
-    })
+            maxOpened: 1,
+            preventDuplicates: true
+        })],
+    providers: [TitleCasePipe, UpperCasePipe, TitleCaseDashedNamePipe, GenerationNamePipe, provideHttpClient(withInterceptorsFromDi())]
+})
     .compileComponents();
   });
 
