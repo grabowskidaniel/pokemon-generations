@@ -5,6 +5,6 @@ export class PokemonStateModel {
   constructor(
     public generationResult: PokemonGenerationResult,
     public generations: PokemonGeneration[],
-    public species: { [generation: string]: PokemonSpecies[] }
+    public species: Record<string, PokemonSpecies[]>
   ) {}
 }

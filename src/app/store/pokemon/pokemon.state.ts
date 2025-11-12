@@ -8,7 +8,7 @@ import { PokemonService } from 'src/app/shared/services/pokemon/pokemon.service'
 import { LoadPokemonGenerationAction, LoadPokemonGenerationsAction, LoadPokemonSpeciesDetailsAction } from './pokemon.actions';
 import { PokemonStateModel } from './pokemon.model';
 
-const POKEMON_TOKEN: StateToken<PokemonStateModel> = new StateToken('Pokemon');
+const POKEMON_TOKEN = new StateToken<PokemonStateModel>('Pokemon');
 
 export const initialGenerationResult: PokemonGenerationResult = {
   count: 0,

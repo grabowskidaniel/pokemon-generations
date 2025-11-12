@@ -45,7 +45,8 @@ export class PokemonService {
     return this.httpClient.get<PokemonSpecies>(`${this.API_URL}/pokemon-species/${name}`).pipe(catchError(this.onError));
   }
 
-  private onError(error: any): Observable<any> {
+  // eslint-disable-next-line
+  private onError(error: unknown): Observable<any> {
     const notification: Notification = {
       message: 'Ocorreu um erro! Tente novamente'
     };

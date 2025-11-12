@@ -1,7 +1,7 @@
 <app-card [title]="name | generationName">
   <div class="row">
     <app-label class="col-sm-3" label="Main Region">
-      <a [routerLink]="[]" (click)="onClickRegion($event)">{{ mainRegion | titlecase }}</a>
+      <a [routerLink]="[]" (click)="onClickRegion()">{{ mainRegion | titlecase }}</a>
     </app-label>
 
     <app-label class="col-sm-3" label="Moves">
@@ -9,7 +9,7 @@
     </app-label>
 
     <app-label class="col-sm-3" label="Species">
-      <a [routerLink]="[]" (click)="onClickSpecies($event)">{{ speciesQuantity }}</a>
+      <a [routerLink]="[]" (click)="onClickSpecies()">{{ speciesQuantity }}</a>
     </app-label>
 
     <app-label class="col-sm-3" label="Types">

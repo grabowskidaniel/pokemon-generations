@@ -14,7 +14,7 @@ export class SpeciesComponent implements OnInit, OnDestroy {
   public species$: Observable<PokemonSpecies[]>;
   public generationName: string;
 
-  private unsub$: Subject<void> = new Subject();
+  private unsub$ = new Subject<void>();
 
   constructor(private activatedRoute: ActivatedRoute, private pokemonStateFacadeService: PokemonStateFacadeService) { }
 

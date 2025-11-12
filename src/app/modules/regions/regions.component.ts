@@ -21,7 +21,7 @@ export class RegionsComponent implements OnInit, OnDestroy {
   public pokedexes: string;
   public versionGroups: string;
 
-  private unsub$: Subject<void> = new Subject();
+  private unsub$ = new Subject<void>();
 
   constructor(
     private activatedRoute: ActivatedRoute,

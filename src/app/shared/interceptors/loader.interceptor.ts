@@ -8,7 +8,8 @@ import { LoaderService } from '../services/loader/loader.service';
 export class LoaderInterceptor implements HttpInterceptor {
   constructor(private loaderService: LoaderService) {}
 
-  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+  // eslint-disable-next-line
+  intercept(req: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<any>> {
     this.loaderService.show();
 
     return next.handle(req).pipe(finalize(() => this.loaderService.hide()));
